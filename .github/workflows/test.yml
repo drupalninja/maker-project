@@ -1,4 +1,4 @@
-name: Test OpenChurch
+name: Test Creator
 
 on:
   push:
@@ -48,12 +48,12 @@ jobs:
         run:
           echo "export PATH=$PATH:$GITHUB_WORKSPACE/vendor/bin" >> ~/.bash_profile
           source ~/.bash_profile
-          drush si -y --site-name=OpenChurch
-          drush en -y openchurch_core
-          drush theme:enable openchurch_theme
-          drush config-set -y system.theme default openchurch_theme
+          drush si -y --site-name=Creator
+          drush en -y creator_core
+          drush theme:enable creator_theme
+          drush config-set -y system.theme default creator_theme
 
       - name: Check coding standards
         run: |
-          ./vendor/bin/phpcs --standard=Drupal --extensions=php,module,install,js web/modules/contrib/openchurch_core
-          ./vendor/bin/phpcs --standard=Drupal --extensions=php,module,install,js web/themes/contrib/openchurch_theme
+          ./vendor/bin/phpcs --standard=Drupal --extensions=php,module,install,js web/modules/contrib/creator_core
+          ./vendor/bin/phpcs --standard=Drupal --extensions=php,module,install,js web/themes/contrib/creator_theme

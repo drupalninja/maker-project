@@ -1,0 +1,25 @@
+{
+  "name": "drupal/creator_core",
+  "description": "Creator core configuration (blocks, content, views).",
+  "type": "drupal-module",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "Drupal",
+    "church"
+  ],
+  "homepage": "https://www.drupal.org/project/creator_core",
+  "authors": [
+    {
+      "name": "Jay Callicott",
+      "role": "Developer"
+    }
+  ],
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/creator_core",
+    "source": "https://git.drupalcode.org/project/creator_core"
+  },
+  "require": {
+    "drupal/core": "^9.3 || ^10"
+  }
+}

@@ -1,0 +1,64 @@
+# Main theme library.
+global:
+  js:
+    js/creator-theme.js: {}
+  css:
+    base:
+      css/global.css: {}
+  dependencies:
+    - "creator_theme/bootstrap-css"
+    - "creator_theme/bootstrap-js"
+    - "creator_theme/card"
+    - "creator_theme/header-nav"
+    - "creator_theme/icons-css"
+    - "creator_theme/popper-js"
+    - "creator_theme/preview"
+    - "core/drupal"
+
+bootstrap-css:
+  css:
+    component:
+      //cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css: {}
+
+bootstrap-js:
+  js:
+    //cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js: {}
+
+card:
+  css:
+    component:
+      css/card.css: {}
+
+carousel:
+  css:
+    component:
+      css/carousel.css: {}
+
+cta:
+  css:
+    component:
+      css/cta.css: {}
+
+hero:
+  css:
+    component:
+      css/hero.css: {}
+
+header-nav:
+  css:
+    component:
+      css/header-nav.css: {}
+
+icons-css:
+  css:
+    component:
+      //cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css: {}
+
+popper-js:
+  js:
+    //cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js: {}
+
+preview:
+  css:
+    component:
+      css/preview.css: {}

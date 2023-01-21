@@ -60,7 +60,7 @@ $media_files = [];
 
 // Save each homepage image.
 foreach ($homepage_images as $image_alt => $image_name) {
-  $module_path = \Drupal::service('extension.list.module')->getPath('openchurch_core');
+  $module_path = \Drupal::service('extension.list.module')->getPath('creator_core');
   $image_path = $module_path . '/images/' . $image_name;
   $data = file_get_contents($image_path);
   $file = \Drupal::service('file.repository')->writeData($data, 'public://' . $image_name, FileSystemInterface::EXISTS_REPLACE);

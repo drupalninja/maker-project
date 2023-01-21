@@ -1,7 +1,7 @@
 ## Overview
-This composer project is used for testing the OpenChurch install profile for Drupal 10+.
+This composer project is used for testing the Creator install profile for Drupal 10+.
 
-Gitpod link: https://gitpod.io/#https://github.com/drupalninja/openchurch-project/
+Gitpod link: https://gitpod.io/#https://github.com/drupalninja/creator-project/
 
 ## Quick start
 
@@ -10,7 +10,7 @@ Gitpod link: https://gitpod.io/#https://github.com/drupalninja/openchurch-projec
    ```shell
    ddev start
    ```
-   
+
 2. **Install Composer**
 
    ```shell
@@ -23,17 +23,17 @@ Gitpod link: https://gitpod.io/#https://github.com/drupalninja/openchurch-projec
    ddev . drush si -y
    ```
 
-2. **Enable the OpenChurch Core module**
+2. **Enable the Creator Core module**
 
    ```shell
-   ddev . drush en -y openchurch_core
+   ddev . drush en -y creator_core
    ```
 
-3. **Enable the OpenChurch Themee**
+3. **Enable the Creator Themee**
 
    ```shell
-   ddev . drush theme:enable openchurch_theme
-   ddev . drush config-set -y system.theme default openchurch_theme
+   ddev . drush theme:enable creator_theme
+   ddev . drush config-set -y system.theme default creator_theme
    ```
 
 4. **Login to test**
