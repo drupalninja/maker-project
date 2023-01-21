@@ -40,12 +40,12 @@ function creator_theme_preprocess_html(&$variables) {
   }
 
   if ($bg_dark_color = theme_get_setting('bg_dark_color')) {
-    $inline_css .= '.bg-dark{ background-color: ' . $bg_dark_color . ' !important; }';
+    $inline_css .= '.bg-dark { background-color: ' . $bg_dark_color . ' !important; }';
   }
 
-  if ($bg_light_color = theme_get_setting('bg_light_color')) {
-    $inline_css .= '.bg-light, .scrolled { background-color: ' . $bg_light_color . ' !important; }';
-    $inline_css .= '@media (max-width: 991px) { .sticky-top, .fixed-top { background-color: ' . $bg_light_color . ' !important; }}';
+  if ($nav_bg_color = theme_get_setting('nav_bg_color')) {
+    $inline_css .= 'header, .scrolled { background-color: ' . $nav_bg_color . ' !important; }';
+    $inline_css .= '@media (max-width: 991px) { .sticky-top, .fixed-top { background-color: ' . $nav_bg_color . ' !important; }}';
   }
 
   if ($bg_secondary_color = theme_get_setting('bg_secondary_color')) {

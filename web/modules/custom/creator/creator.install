@@ -67,8 +67,8 @@ function creator_install() {
     'Beach 2' => 'frank-mckenna-eXHeq48Z-Q4-unsplash.jpg',
     'Church' => 'karl-fredrickson-86DI4OKDkCc-unsplash.jpg',
     'Climb' => 'nathan-dumlao-pLoMDKtl-JY-unsplash.jpg',
-    'Flower' => 'nicolas-reymond-tNm6DL_nO-o-unsplash.jpg',
-    'City' => 'roman-kraft-g_gwdpsCVAY-unsplash.jpg',
+    'Cutting' => 'alyson-mcphee-yWG-ndhxvqY-unsplash.jpg',
+    'Chef' => 'maarten-van-den-heuvel-EzH46XCDQRY-unsplash.jpg',
     'Children' => 'erika-giraud-4EFeD-VTgu4-unsplash.jpg',
     'Students' => 'brooke-cagle--uHVRvDr7pg-unsplash.jpg',
     'Groups' => 'small-group-network-e5juUFoRHpE-unsplash.jpg',
@@ -130,10 +130,10 @@ function creator_install() {
         'target_id' => $media_files['Climb']->id(),
       ],
       [
-        'target_id' => $media_files['Flower']->id(),
+        'target_id' => $media_files['Cutting']->id(),
       ],
       [
-        'target_id' => $media_files['City']->id(),
+        'target_id' => $media_files['Chef']->id(),
       ],
       [
         'target_id' => $media_files['Children']->id(),
@@ -393,23 +393,40 @@ function creator_install() {
 
   $node->save();
 
+  $tag_ids = $section_ids = [];
+
   $tag_names = [
-    'church',
-    'catholic',
-    'bulletin',
-    'programs',
-    'events',
-    'charity',
-    'website',
-    'no-profit',
-    'belief',
-    'ministry',
-    'sermon',
-    'nature',
+    'breakfast',
+    'dinner',
+    'vegan',
+    'culinary',
+    'keto',
+    'street food',
   ];
 
-  // Create tags.
-  foreach ($tag_names as $tag_name) {
+  $section_terms = [
+    'World',
+    'Entertainment',
+    'Food',
+    'Travel',
+    'Lifestyle',
+    'Fashion',
+    'Health',
+    'Sports',
+  ];
+
+  // Create section terms.
+  foreach ($section_terms as $term_name) {
+    $term = Term::create([
+      'vid' => 'section',
+      'name' => $term_name,
+    ]);
+    $term->save();
+    $section_ids[$term_name] = $term->id();
+  }
+
+   // Create tags.
+   foreach ($tag_names as $tag_name) {
     $term = Term::create([
       'vid' => 'tags',
       'name' => $tag_name,
@@ -418,7 +435,22 @@ function creator_install() {
     $tag_ids[] = $term->id();
   }
 
-  $x = $y = 0;
+  $articles = [
+    'Ready Food Talent',
+    'The Top Secrets Of The Perfect Weight Loss',
+    'Creamy Red Pepper Pasta with Blistered Tomatoes',
+    'Making Chocolate Cake Recipes From Scratch',
+    'Barbecue Party Tips For As Truly Amazing Event',
+    'Smarter Food Choices 101 Tips For The Busy Women',
+    'Ready Food Talent',
+    'The Top Secrets Of The Perfect Weight Loss',
+    'Creamy Red Pepper Pasta with Blistered Tomatoes',
+    'Making Chocolate Cake Recipes From Scratch',
+    'Barbecue Party Tips For As Truly Amazing Event',
+    'Smarter Food Choices 101 Tips For The Busy Women',
+  ];
+
+  $y = 0;
 
   // Create sample article nodes.
   for ($c = 0; $c < 6; $c++) {
@@ -426,7 +458,7 @@ function creator_install() {
 
     $node = Node::create([
       'type' => 'article',
-      'title' => 'Perseverance of the Saints',
+      'title' => $articles[$c],
       'uid' => 1,
       'status' => 1,
       'body' => [
@@ -435,11 +467,14 @@ function creator_install() {
         'summary' => 'Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. ',
       ],
       'field_image' => [
-        'target_id' => $media_files['Flower']->id(),
-        'alt' => 'Flower',
+        'target_id' => $media_files['Cutting']->id(),
+        'alt' => 'Cutting',
+      ],
+      'field_section' => [
+        'target_id' => $section_ids['Food'],
       ],
       'field_tags' => [
-        'target_id' => $tag_ids[$x++],
+        'target_id' => $tag_ids[$c],
       ],
       'created' => $created + 3600,
     ]);
@@ -448,7 +483,7 @@ function creator_install() {
 
     $node = Node::create([
       'type' => 'article',
-      'title' => 'Lord is Sufficient for all of our needs',
+      'title' => $articles[$c + 1],
       'uid' => 1,
       'status' => 1,
       'body' => [
@@ -457,11 +492,14 @@ function creator_install() {
         'summary' => 'Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.',
       ],
       'field_image' => [
-        'target_id' => $media_files['City']->id(),
-        'alt' => 'City',
+        'target_id' => $media_files['Chef']->id(),
+        'alt' => 'Chef',
+      ],
+      'field_section' => [
+        'target_id' => $section_ids['Food'],
       ],
       'field_tags' => [
-        'target_id' => $tag_ids[$x++],
+        'target_id' => $tag_ids[$c],
       ],
       'created' => $created,
     ]);
@@ -485,18 +523,34 @@ function creator_install() {
 
   // Create menu items.
   $menu_link = MenuLinkContent::create([
-    'title' => 'About',
-    'link' => ['uri' => 'internal:/about-us'],
+    'title' => 'World',
+    'link' => ['uri' => 'internal:/node'],
+    'menu_name' => 'main',
+    'expanded' => TRUE,
+    'weight' => 0,
+  ]);
+  $menu_link->save();
+
+  $menu_link = MenuLinkContent::create([
+    'title' => 'News',
+    'link' => ['uri' => 'internal:/node'],
     'menu_name' => 'main',
     'expanded' => TRUE,
     'weight' => 1,
   ]);
   $menu_link->save();
 
-  $main_links[$menu_link->title->value] = $menu_link;
+  $menu_link = MenuLinkContent::create([
+    'title' => 'Food',
+    'link' => ['uri' => 'internal:/node'],
+    'menu_name' => 'main',
+    'expanded' => TRUE,
+    'weight' => 2,
+  ]);
+  $menu_link->save();
 
   $menu_link = MenuLinkContent::create([
-    'title' => 'Pages',
+    'title' => 'Lifestyle',
     'link' => ['uri' => 'internal:/node'],
     'menu_name' => 'main',
     'expanded' => TRUE,
@@ -504,24 +558,25 @@ function creator_install() {
   ]);
   $menu_link->save();
 
-  $main_links[$menu_link->title->value] = $menu_link;
+  $menu_link = MenuLinkContent::create([
+    'title' => 'Entertainment',
+    'link' => ['uri' => 'internal:/node'],
+    'menu_name' => 'main',
+    'expanded' => TRUE,
+    'weight' => 4,
+  ]);
+  $menu_link->save();
 
   $menu_link = MenuLinkContent::create([
-    'title' => 'Contact',
-    'link' => ['uri' => 'internal:/contact'],
+    'title' => 'Pages',
+    'link' => ['uri' => 'internal:/node'],
     'menu_name' => 'main',
     'expanded' => TRUE,
     'weight' => 5,
   ]);
   $menu_link->save();
 
-  $menu_link = MenuLinkContent::create([
-    'title' => 'Our Blog',
-    'link' => ['uri' => 'internal:/blog'],
-    'menu_name' => 'main',
-    'parent' => $main_links['Pages']->getPluginId(),
-  ]);
-  $menu_link->save();
+  $main_links[$menu_link->title->value] = $menu_link;
 
   $menu_link = MenuLinkContent::create([
     'title' => 'Homepage (alt)',

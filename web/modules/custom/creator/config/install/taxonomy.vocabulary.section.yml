@@ -1,0 +1,8 @@
+uuid: a0da95f6-5666-49e7-a1eb-2c2f2f2f5739
+langcode: en
+status: true
+dependencies: {  }
+name: Section
+vid: section
+description: 'Main section topics for the website.'
+weight: 0

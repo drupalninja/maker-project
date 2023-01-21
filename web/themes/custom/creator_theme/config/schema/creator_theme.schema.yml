@@ -18,7 +18,7 @@ creator_theme.settings:
     dropdown_active_color:
       type: textfield
       label: Dropdown Active Color
-    bg_light_color:
+    nav_bg_color:
       type: textfield
       label: Background Light Color
     bg_dark_color:

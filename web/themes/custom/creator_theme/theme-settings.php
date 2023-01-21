@@ -100,6 +100,18 @@ function creator_theme_form_system_theme_settings_alter(&$form, &$form_state) {
     '#required' => TRUE,
   ];
 
+  $form['custom_colors']['nav_bg_color'] = [
+    '#type' => 'textfield',
+    '#title' => t('Navigation background color'),
+    '#default_value' => theme_get_setting('nav_bg_color'),
+    '#size' => 10,
+    '#description' => t('The default nav background color (assumes lighter color.'),
+    '#attributes' => [
+      'style' => 'background-color: ' . theme_get_setting('bg_dark_color') . '; color: black;',
+    ],
+    '#required' => TRUE,
+  ];
+
   $form['custom_colors']['bg_secondary_color'] = [
     '#type' => 'textfield',
     '#title' => t('Secondary background color'),
