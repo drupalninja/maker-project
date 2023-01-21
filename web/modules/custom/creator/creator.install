@@ -17,7 +17,7 @@ use Drupal\contact\Entity\ContactForm;
 /**
  * Implements hook_install().
  */
-function creator_core_install() {
+function creator_install() {
   // Disable frontpage view.
   \Drupal::configFactory()->getEditable('views.view.frontpage')
     ->set('status', FALSE)
@@ -79,7 +79,7 @@ function creator_core_install() {
 
   // Save each homepage image.
   foreach ($homepage_images as $image_alt => $image_name) {
-    $module_path = \Drupal::service('extension.list.module')->getPath('creator_core');
+    $module_path = \Drupal::service('extension.list.module')->getPath('creator');
     $image_path = $module_path . '/images/' . $image_name;
     $data = file_get_contents($image_path);
     $file = \Drupal::service('file.repository')->writeData($data, 'public://' . $image_name, FileSystemInterface::EXISTS_REPLACE);
@@ -105,7 +105,7 @@ function creator_core_install() {
     ->save();
 
   // Save video hero file.
-  $module_path = \Drupal::service('extension.list.module')->getPath('creator_core');
+  $module_path = \Drupal::service('extension.list.module')->getPath('creator');
   $video_path = $module_path . '/videos/church-hero.mp4';
   $data = file_get_contents($video_path);
   $file = \Drupal::service('file.repository')->writeData($data, 'public://church-hero.mp4', FileSystemInterface::EXISTS_REPLACE);

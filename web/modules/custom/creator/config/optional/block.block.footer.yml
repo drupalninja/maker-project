@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - creator_core
+    - creator
   theme:
     - creator_theme
 id: footer
@@ -11,12 +11,12 @@ theme: creator_theme
 region: footer
 weight: 0
 provider: null
-plugin: creator_core_footer
+plugin: creator_footer
 settings:
-  id: creator_core_footer
+  id: creator_footer
   label: Footer
   label_display: '0'
-  provider: creator_core
+  provider: creator
   footer_col1:
     value: '<h5>About the Church</h5><p>For the word of God is living and active. Sharper than any double-edged sword, it penetrates even to dividing soul and spirit, joints and marrow; it judges the thoughts and attitudes.</p>'
     format: full_html

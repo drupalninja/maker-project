@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\creator_core\Plugin\Block;
+namespace Drupal\creator\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Url;
@@ -9,7 +9,7 @@ use Drupal\Core\Url;
  * Provides an event details block.
  *
  * @Block(
- *   id = "creator_core_event_details",
+ *   id = "creator_event_details",
  *   admin_label = @Translation("Event Details"),
  *   category = @Translation("Creator")
  * )
@@ -42,7 +42,7 @@ class EventDetailsBlock extends BlockBase {
     }
 
     $build = [
-      '#theme' => 'creator_core_event_details',
+      '#theme' => 'creator_event_details',
       '#date' => $formatted_date,
       '#time' => $time,
       '#location' => $node->get('field_location')->value,

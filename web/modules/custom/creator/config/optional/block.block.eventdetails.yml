@@ -4,7 +4,7 @@ status: true
 dependencies:
   module:
     - node
-    - creator_core
+    - creator
   theme:
     - creator_theme
 id: eventdetails
@@ -12,12 +12,12 @@ theme: creator_theme
 region: sidebar
 weight: 0
 provider: null
-plugin: creator_core_event_details
+plugin: creator_event_details
 settings:
-  id: creator_core_event_details
+  id: creator_event_details
   label: 'Event Details'
   label_display: '0'
-  provider: creator_core
+  provider: creator
 visibility:
   'entity_bundle:node':
     id: 'entity_bundle:node'

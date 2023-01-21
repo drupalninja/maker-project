@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\creator_core\Plugin\Block;
+namespace Drupal\creator\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -9,7 +9,7 @@ use Drupal\Core\Form\FormStateInterface;
  * Provides a newsletter block.
  *
  * @Block(
- *   id = "creator_core_map",
+ *   id = "creator_map",
  *   admin_label = @Translation("Map"),
  *   category = @Translation("Creator")
  * )
@@ -50,7 +50,7 @@ class MapBlock extends BlockBase {
    */
   public function build() {
     $build = [
-      '#theme' => 'creator_core_map',
+      '#theme' => 'creator_map',
       '#script' => $this->configuration['script'],
     ];
 

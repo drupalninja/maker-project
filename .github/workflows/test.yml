@@ -49,11 +49,11 @@ jobs:
           echo "export PATH=$PATH:$GITHUB_WORKSPACE/vendor/bin" >> ~/.bash_profile
           source ~/.bash_profile
           drush si -y --site-name=Creator
-          drush en -y creator_core
+          drush en -y creator
           drush theme:enable creator_theme
           drush config-set -y system.theme default creator_theme
 
       - name: Check coding standards
         run: |
-          ./vendor/bin/phpcs --standard=Drupal --extensions=php,module,install,js web/modules/contrib/creator_core
+          ./vendor/bin/phpcs --standard=Drupal --extensions=php,module,install,js web/modules/contrib/creator
           ./vendor/bin/phpcs --standard=Drupal --extensions=php,module,install,js web/themes/contrib/creator_theme

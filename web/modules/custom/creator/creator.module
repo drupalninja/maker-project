@@ -10,10 +10,10 @@ use Drupal\Core\Routing\RouteMatchInterface;
 /**
  * Implements hook_help().
  */
-function creator_core_help($route_name, RouteMatchInterface $route_match) {
+function creator_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name) {
-    // Main module help for the creator_core module.
-    case 'help.page.creator_core':
+    // Main module help for the creator module.
+    case 'help.page.creator':
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
       $output .= '<p>' . t('Creator Core provides configuration that is intended to be used on top of the Drupal "standard" profile and accompanied with the Creator Theme.') . '</p>';
@@ -28,9 +28,9 @@ use Drupal\Core\Entity\EntityInterface;
 /**
  * Implements hook_theme().
  */
-function creator_core_theme() {
+function creator_theme() {
   return [
-    'creator_core_event_details' => [
+    'creator_event_details' => [
       'variables' => [
         'date' => NULL,
         'time' => NULL,
@@ -38,19 +38,19 @@ function creator_core_theme() {
         'link' => NULL,
       ],
     ],
-    'creator_core_newsletter' => [
+    'creator_newsletter' => [
       'variables' => [
         'action' => NULL,
         'title' => NULL,
         'description' => NULL,
       ],
     ],
-    'creator_core_map' => [
+    'creator_map' => [
       'variables' => [
         'script' => NULL,
       ],
     ],
-    'creator_core_footer' => [
+    'creator_footer' => [
       'variables' => [
         'footer_col1' => NULL,
         'footer_col2' => NULL,
@@ -68,18 +68,18 @@ function creator_core_theme() {
 /**
  * Implements hook_entity_update().
  */
-function creator_core_entity_update(EntityInterface $entity) {
+function creator_entity_update(EntityInterface $entity) {
   // Only use custom aliases if PathAuto is not enabled.
   if (!\Drupal::moduleHandler()->moduleExists('pathauto')) {
-    _creator_core_node_auto_alias($entity);
+    _creator_node_auto_alias($entity);
   }
 }
 
 /**
  * Implements hook_entity_insert().
  */
-function creator_core_entity_insert(EntityInterface $entity) {
-  creator_core_entity_update($entity);
+function creator_entity_insert(EntityInterface $entity) {
+  creator_entity_update($entity);
 }
 
 /**
@@ -90,7 +90,7 @@ function creator_core_entity_insert(EntityInterface $entity) {
  * @param Drupal\Core\Entity\EntityInterface $entity
  *   The entity object.
  */
-function _creator_core_node_auto_alias(EntityInterface $entity) {
+function _creator_node_auto_alias(EntityInterface $entity) {
   $db = Drupal::database();
 
   $aliases = [
@@ -114,7 +114,7 @@ function _creator_core_node_auto_alias(EntityInterface $entity) {
     $title = $entity->title->getValue()[0]['value'];
 
     // Convert node title to machine path.
-    $alias = $machine_name = _creator_core_clean_alias($title);
+    $alias = $machine_name = _creator_clean_alias($title);
 
     $c = 0;
 
@@ -154,14 +154,14 @@ function _creator_core_node_auto_alias(EntityInterface $entity) {
  * @return string
  *   Return machine name for text.
  */
-function _creator_core_clean_alias($text) {
+function _creator_clean_alias($text) {
   return preg_replace('/\-+/', '-', strtolower(preg_replace('/[^a-zA-Z0-9_-]+/', '', str_replace(' ', '-', $text))));
 }
 
 /**
  * Implements hook_library_info_alter().
  */
-function creator_core_library_info_alter(&$libraries, $extension) {
+function creator_library_info_alter(&$libraries, $extension) {
 
   // Override CDN values with theme settings.
   if ($extension == 'creator_theme') {

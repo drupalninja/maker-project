@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\creator_core\Plugin\Block;
+namespace Drupal\creator\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -9,7 +9,7 @@ use Drupal\Core\Form\FormStateInterface;
  * Provides a newsletter block.
  *
  * @Block(
- *   id = "creator_core_newsletter",
+ *   id = "creator_newsletter",
  *   admin_label = @Translation("Newsletter"),
  *   category = @Translation("Creator")
  * )
@@ -64,7 +64,7 @@ class NewsletterBlock extends BlockBase {
    */
   public function build() {
     $build = [
-      '#theme' => 'creator_core_newsletter',
+      '#theme' => 'creator_newsletter',
       '#action' => $this->configuration['action'],
       '#title' => $this->configuration['title'],
       '#description' => $this->configuration['description'],

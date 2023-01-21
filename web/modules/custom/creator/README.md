@@ -5,10 +5,10 @@ Drupal "standard" profile and accompanied with the Creator Theme.No additional
 contributed modules are required to install.
 
 For a full description of the module, visit the
-[project page](https://www.drupal.org/project/creator_core).
+[project page](https://www.drupal.org/project/creator).
 
 Submit bug reports and feature suggestions, or track changes in the
-[issue queue](https://www.drupal.org/project/issues/creator_core).
+[issue queue](https://www.drupal.org/project/issues/creator).
 
 
 ## Table of contents

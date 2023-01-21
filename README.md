@@ -26,7 +26,7 @@ Gitpod link: https://gitpod.io/#https://github.com/drupalninja/creator-project/
 2. **Enable the Creator Core module**
 
    ```shell
-   ddev . drush en -y creator_core
+   ddev . drush en -y creator
    ```
 
 3. **Enable the Creator Themee**

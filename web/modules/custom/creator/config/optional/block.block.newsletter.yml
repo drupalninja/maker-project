@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - creator_core
+    - creator
   theme:
     - creator_theme
 id: newsletter
@@ -11,11 +11,11 @@ theme: creator_theme
 region: content_below
 weight: 0
 provider: null
-plugin: creator_core_newsletter
+plugin: creator_newsletter
 settings:
-  id: creator_core_newsletter
+  id: creator_newsletter
   label: Newsletter
   label_display: '0'
-  provider: creator_core
+  provider: creator
   action: 'https://formspree.io/f/{form id}'
 visibility: {  }

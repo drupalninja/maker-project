@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\creator_core\Plugin\Block;
+namespace Drupal\creator\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -9,7 +9,7 @@ use Drupal\Core\Form\FormStateInterface;
  * Provides a footer block.
  *
  * @Block(
- *   id = "creator_core_footer",
+ *   id = "creator_footer",
  *   admin_label = @Translation("Footer"),
  *   category = @Translation("Creator")
  * )
@@ -116,7 +116,7 @@ class FooterBlock extends BlockBase {
   public function build() {
 
     $build = [];
-    $build['#theme'] = 'creator_core_footer';
+    $build['#theme'] = 'creator_footer';
 
     for ($c = 1; $c <= 3; $c++) {
       $footer_setting = $this->configuration['footer_col' . $c];
