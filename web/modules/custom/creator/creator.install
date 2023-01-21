@@ -63,16 +63,11 @@ function creator_install() {
 
   // Save media images.
   $homepage_images = [
-    'Beach 1' => 'derek-thomson-TWoL-QCZubY-unsplash.jpg',
-    'Beach 2' => 'frank-mckenna-eXHeq48Z-Q4-unsplash.jpg',
-    'Church' => 'karl-fredrickson-86DI4OKDkCc-unsplash.jpg',
-    'Climb' => 'nathan-dumlao-pLoMDKtl-JY-unsplash.jpg',
+    'Gaming' => 'sam-pak-X6QffKLwyoQ-unsplash.jpg',
+    'Politics' => 'marco-oriolesi-wqLGlhjr6Og-unsplash.jpg',
     'Cutting' => 'alyson-mcphee-yWG-ndhxvqY-unsplash.jpg',
     'Chef' => 'maarten-van-den-heuvel-EzH46XCDQRY-unsplash.jpg',
-    'Children' => 'erika-giraud-4EFeD-VTgu4-unsplash.jpg',
-    'Students' => 'brooke-cagle--uHVRvDr7pg-unsplash.jpg',
-    'Groups' => 'small-group-network-e5juUFoRHpE-unsplash.jpg',
-    'Hero' => 'church-hero.png',
+    'Concert' => 'nainoa-shizuru-NcdG9mK3PBY-unsplash.jpg',
   ];
 
   $media_files = [];
@@ -99,17 +94,10 @@ function creator_install() {
   }
 
   // Update article image field with a default image.
-  $file = $media_files['Hero']->field_media_image->entity;
+  $file = $media_files['Concert']->field_media_image->entity;
   \Drupal::configFactory()->getEditable('field.field.node.article.field_image')
     ->set('default_value.0.target_id', $file->id())
     ->save();
-
-  // Save video hero file.
-  $module_path = \Drupal::service('extension.list.module')->getPath('creator');
-  $video_path = $module_path . '/videos/church-hero.mp4';
-  $data = file_get_contents($video_path);
-  $file = \Drupal::service('file.repository')->writeData($data, 'public://church-hero.mp4', FileSystemInterface::EXISTS_REPLACE);
-  $media_files['Video'] = $file;
 
   // Create a Gallery block.
   $block = BlockContent::create([
@@ -118,16 +106,7 @@ function creator_install() {
     'uuid' => '36981c55-fa8c-484c-b99a-640335329e00',
     'field_images' => [
       [
-        'target_id' => $media_files['Beach 1']->id(),
-      ],
-      [
-        'target_id' => $media_files['Beach 2']->id(),
-      ],
-      [
-        'target_id' => $media_files['Church']->id(),
-      ],
-      [
-        'target_id' => $media_files['Climb']->id(),
+        'target_id' => $media_files['Gaming']->id(),
       ],
       [
         'target_id' => $media_files['Cutting']->id(),
@@ -136,10 +115,19 @@ function creator_install() {
         'target_id' => $media_files['Chef']->id(),
       ],
       [
-        'target_id' => $media_files['Children']->id(),
+        'target_id' => $media_files['Gaming']->id(),
       ],
       [
-        'target_id' => $media_files['Students']->id(),
+        'target_id' => $media_files['Cutting']->id(),
+      ],
+      [
+        'target_id' => $media_files['Chef']->id(),
+      ],
+      [
+        'target_id' => $media_files['Gaming']->id(),
+      ],
+      [
+        'target_id' => $media_files['Cutting']->id(),
       ],
     ],
   ]);
@@ -157,7 +145,7 @@ function creator_install() {
       'format' => 'full_html',
     ],
     'field_image' => [
-      'target_id' => $media_files['Church']->id(),
+      'target_id' => $media_files['Concert']->id(),
     ],
   ]);
 
@@ -167,14 +155,14 @@ function creator_install() {
   $block = BlockContent::create([
     'type' => 'cta',
     'info' => 'Homepage CTA block',
-    'field_title' => 'Find a place to connect and grow through a small group, class, or regular gathering.',
+    'field_title' => 'Vesti at bulum nec odio aea',
     'uuid' => '2a47ba12-37d1-462a-bf73-89527ab481ad',
     'field_link' => [
       'uri' => 'https://www.drupal.org',
-      'title' => 'Become a Member',
+      'title' => 'Read More',
     ],
     'field_image' => [
-      'target_id' => $media_files['Church']->id(),
+      'target_id' => $media_files['Concert']->id(),
     ],
   ]);
 
@@ -184,9 +172,9 @@ function creator_install() {
   $block = BlockContent::create([
     'type' => 'quote',
     'info' => 'Homepage Quote block',
-    'field_summary' => 'For God so loved the world that he gave his one and only begotten Son, that who ever believes in him shall not perish but have eternal life.',
+    'field_summary' => 'Grursus mal suada faci lisis Lorem ipsum dolarorit ametion consectetur elit. a Vesti at bulum nec odio aea.',
     'uuid' => '9a6dcb9c-f27e-4c8e-afc3-b9028d38bce2',
-    'field_author' => 'John 3:16 (KJV)',
+    'field_author' => 'Vesti at bulum',
   ]);
 
   $block->save();
@@ -196,32 +184,34 @@ function creator_install() {
     'type' => 'cards',
     'info' => 'Homepage Cards block',
     'uuid' => 'c990ba75-f2fc-478d-a4e3-658634df7aaf',
-    'field_title' => 'Guide by the Holy Spirit',
-    'field_summary' => "Experience God's Wisdom each day as you are lead by the Holy Spirit. Walk effortlessly into success and happiness and understand the Father's love for you.",
+    'field_title' => 'The Ultimate Guide to New York\'s Favorite Food',
+    'field_summary' => "Grursus mal suada faci lisis Lorem ipsum dolarorit ametion consectetur elit. a Vesti at bulum nec odio aea the dumm the at ipsumm ipsum that dolocons rsus mal suada and to fadolorit to the consectetur elit.",
     'field_link' => [
       'uri' => 'https://www.drupal.org',
     ],
     'field_image' => [
-      'target_id' => $media_files['Climb']->id(),
-      'alt' => 'Climb',
+      'target_id' => $media_files['Cutting']->id(),
+      'alt' => 'Politics',
     ],
-    'field_title2' => 'Law Demands; Grace Supplies',
-    'field_summary2' => 'Jesus came and fulfilled the laws, the only one who could keep the laws so that in Him we can be made righteous and not have to suffer death for our sins.',
+    'field_title2' => 'Nintendo Labo VR hands This virtual Reality Gets Weird',
+    'field_summary2' => '
+    Grursus mal suada faci lisis Lorem ipsum dolarorit ametion consectetur elit. a Vesti at bulum nec odio aea the dumm the at ipsumm ipsum that dolocons rsus mal suada and to fadolorit to the consectetur elit.',
     'field_link2' => [
       'uri' => 'https://www.drupal.org',
     ],
     'field_image2' => [
-      'target_id' => $media_files['Beach 1']->id(),
-      'alt' => 'Beach 1',
+      'target_id' => $media_files['Gaming']->id(),
+      'alt' => 'Gaming',
     ],
-    'field_title3' => 'Christ Occupied',
-    'field_summary3' => 'It may sound good to Mankind to be self-occupied. But God wants you to be Christ-Occupied and receive all of your blessings through resting in the work of Jesus.',
+    'field_title3' => 'Making Chocolate Cake Recipes From Scratch',
+    'field_summary3' => '
+    Grursus mal suada faci lisis Lorem ipsum dolarorit ametion consectetur elit. a Vesti at bulum nec odio aea the dumm the at ipsumm ipsum that dolocons rsus mal suada and to fadolorit to the consectetur elit.',
     'field_link3' => [
       'uri' => 'https://www.drupal.org',
     ],
     'field_image3' => [
-      'target_id' => $media_files['Beach 2']->id(),
-      'alt' => 'Beach 2',
+      'target_id' => $media_files['Chef']->id(),
+      'alt' => 'Chef',
     ],
   ]);
 
@@ -230,23 +220,20 @@ function creator_install() {
   // Create homepage hero video block.
   $block = BlockContent::create([
     'type' => 'hero',
-    'info' => 'Homepage Hero Video',
+    'info' => 'Homepage Hero',
     'uuid' => '78fa9985-e444-48aa-baec-a0ddd5674a35',
-    'field_title' => 'Grace and Truth',
+    'field_title' => 'House panel to consider bill to revamp DHS cyber team',
     'body' => [
-      'value' => 'For God did not send his Son into the world to condemn the world, but to save the world through him. John 3:17',
+      'value' => 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui.',
       'format' => 'full_html',
     ],
     'field_link' => [
       'uri' => 'https://www.drupal.org',
-      'title' => 'Browse Gallery',
+      'title' => 'Read More',
     ],
     'field_image' => [
-      'target_id' => $media_files['Hero']->id(),
-      'alt' => 'Church building',
-    ],
-    'field_video' => [
-      'target_id' => $media_files['Video']->id(),
+      'target_id' => $media_files['Politics']->id(),
+      'alt' => 'Politics',
     ],
   ]);
 
@@ -257,35 +244,35 @@ function creator_install() {
     'type' => 'carousel',
     'info' => 'Homepage Carousel block',
     'uuid' => '8808c2ce-8398-11ed-a1eb-0242ac120002',
-    'field_title' => 'Grace and Truth',
-    'field_summary' => 'For God did not send his Son into the world to condemn the world, but to save the world through him. John 3:17',
+    'field_title' => 'Vesti at bulum nec odio aea the dumm',
+    'field_summary' => 'Grursus mal suada faci lisis Lorem ipsum dolarorit ametion consectetur elit.',
     'field_link' => [
       'uri' => 'https://www.drupal.org',
       'title' => 'Browse Gallery',
     ],
     'field_image' => [
-      'target_id' => $media_files['Climb']->id(),
-      'alt' => 'Climb',
+      'target_id' => $media_files['Politics']->id(),
+      'alt' => 'Politics',
     ],
-    'field_title2' => 'Law Demands; Grace Supplies',
-    'field_summary2' => 'Receive the unceasing wave after wave, after wave, after wave of Grace God has for you.',
+    'field_title2' => 'Quisque bibendum euismod commodo.',
+    'field_summary2' => 'Duis condimentum eget ligula eget vestibulum. Curabitur egestas consequat turpis.',
     'field_link2' => [
       'uri' => 'https://www.drupal.org',
       'title' => 'Learn More',
     ],
     'field_image2' => [
-      'target_id' => $media_files['Students']->id(),
-      'alt' => 'Beach 1',
+      'target_id' => $media_files['Gaming']->id(),
+      'alt' => 'Gaming',
     ],
-    'field_title3' => 'Christ Occupied',
-    'field_summary3' => 'It may sound good to Mankind to be self-occupied.',
+    'field_title3' => 'Nam eget sapien scelerisque, semper eros',
+    'field_summary3' => 'Aliquam mauris mi, feugiat a commodo vel, tempus sed ante.',
     'field_link3' => [
       'uri' => 'https://www.drupal.org',
       'title' => 'Join Us',
     ],
     'field_image3' => [
-      'target_id' => $media_files['Groups']->id(),
-      'alt' => 'Beach 2',
+      'target_id' => $media_files['Chef']->id(),
+      'alt' => 'Chef',
     ],
   ]);
 
@@ -514,7 +501,7 @@ function creator_install() {
     'name' => 'Video',
     'uid' => 1,
     'status' => 1,
-    'field_media_oembed_video' => 'https://www.youtube.com/watch?v=BsqlbIpPFQQ',
+    'field_media_oembed_video' => 'https://www.youtube.com/watch?v=GFOaWkFP4JE',
   ]);
 
   $video_entity->save();

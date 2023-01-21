@@ -22,15 +22,15 @@ class FooterBlock extends BlockBase {
   public function defaultConfiguration() {
     return [
       'footer_col1' => [
-        'value' => '<h5>About the Church</h5><p>For the word of God is living and active. Sharper than any double-edged sword, it penetrates even to dividing soul and spirit, joints and marrow; it judges the thoughts and attitudes.</p>',
+        'value' => '<h5>About Us</h5><p>Donec sit amet est nisl. Proin facilisis mauris eu tempor tristique. Mauris suscipit ligula vel vestibulum vehicula.</p>',
         'format' => 'full_html',
       ],
       'footer_col2' => [
-        'value' => '<h5>Quick Links</h5><ul class="list-unstyled"><li><a href="#" class="text-decoration-none">Upcoming events</a></li><li><a href="#" class="text-decoration-none">Ministries</a></li><li><a href="#" class="text-decoration-none">Recent Sermons</a></li><li><a href="#" class="text-decoration-none">Contact us</a></li></ul>',
+        'value' => '<h5>Quick Links</h5><ul class="list-unstyled"><li><a href="#" class="text-decoration-none">News</a></li><li><a href="#" class="text-decoration-none">World</a></li><li><a href="#" class="text-decoration-none">Lifestyle</a></li><li><a href="#" class="text-decoration-none">Contact</a></li></ul>',
         'format' => 'full_html',
       ],
       'footer_col3' => [
-        'value' => '<h5>Our Address</h5><p> Catholic Church<br />121 King Street, Melbourne <br />Victoria 3000 Australia<br /><br />Phone: +61 3 8376 6284<br />Email: <a href="#">mail@catholicwebsite.com</a></p>',
+        'value' => '<h5>Our Address</h5><p>Donec sit amet est nisl <br />121 King Street, Melbourne <br />Victoria 3000 Australia<br /><br />Phone: +61 3 8376 6284<br />Email: <a href="#">mail@loreipsum.com</a></p>',
         'format' => 'full_html',
       ],
       'footer_connect' => TRUE,
