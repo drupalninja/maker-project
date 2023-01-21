@@ -18,12 +18,15 @@ creator_theme.settings:
     dropdown_active_color:
       type: textfield
       label: Dropdown Active Color
+    bg_light_color:
+      type: textfield
+      label: Background Light Color
+    bg_dark_color:
+      type: textfield
+      label: Background Dark Color
     blog_page_path:
       type: textfield
       label: 'Blog page path'
-    events_page_path:
-      type: textfield
-      label: 'Events page path'
     bootstrap_css:
       type: textfield
       label: 'Bootstrap CSS'

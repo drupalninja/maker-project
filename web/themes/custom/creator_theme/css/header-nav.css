@@ -1,6 +1,3 @@
-body .navbar-brand {
-  font-size: 1.6rem;
-}
 
 /**
  * Add more spacing to nav inside the expanded navbar.
@@ -9,13 +6,17 @@ body .navbar-brand {
   margin-top: 13px;
 }
 
+.navbar-brand img {
+  width: 175px;
+}
+
 /**
  * Animate the navbar on scroll.
  */
 .scrolled {
   transition: font-size 0.5s;
   font-size: 95%;
-  background-color: var(--bs-dark);
+  background-color: var(--bs-light);
   opacity: 0.95;
 }
 
@@ -33,27 +34,19 @@ body .navbar-brand {
  * Adjust spacing when toolbar is open.
  */
 .toolbar-horizontal.toolbar-fixed .sticky-top,
-.toolbar-horizontal.toolbar-fixed .fixed-top,
 .toolbar-tray-open.toolbar-horizontal.toolbar-fixed .scrolled,
-.toolbar-vertical .fixed-top,
 .toolbar-vertical .scrolled {
   top: 39px;
   z-index: 500;
 }
 
 .toolbar-tray-open.toolbar-horizontal.toolbar-fixed .sticky-top,
-.toolbar-tray-open.toolbar-horizontal.toolbar-fixed .fixed-top,
 .toolbar-tray-open.toolbar-horizontal.toolbar-fixed .scrolled {
   top: 79px;
 }
 
 .toolbar-vertical .scrolled {
   left: 0;
-  top: 39px;
-}
-
-.toolbar-tray-open.toolbar-vertical .fixed-top {
-  left: 15rem;
   top: 39px;
 }
 
@@ -68,8 +61,7 @@ body .navbar-brand {
  */
 @media (max-width: 991px) {
 
-  .sticky-top,
-  .fixed-top {
+  .sticky-top {
     background-color: var(--bs-dark);
     opacity: 0.95;
   }
