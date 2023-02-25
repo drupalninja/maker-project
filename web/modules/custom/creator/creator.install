@@ -52,8 +52,21 @@ function creator_install() {
     'type' => 'ad',
     'info' => 'Sidebar Ad 300x250',
     'uuid' => '83cf227c-f337-40fe-83f6-37c1cdbe3ecb',
-    'field_ad' => [
+    'field_embed' => [
       'value' => '<img src="https://placehold.jp/300x250.png?text=300x250 ad" alt="300x250 ad">',
+      'format' => 'embed',
+    ],
+  ]);
+
+  $block->save();
+
+  // Create sponsored content placeholder.
+  $block = BlockContent::create([
+    'type' => 'ad',
+    'info' => 'Sponsored Content',
+    'uuid' => '63828f47-5065-43f0-8190-fcb549dae942',
+    'field_embed' => [
+      'value' => '<img src="https://placehold.jp/728x100.png?text=Sponsored content area" alt="728x100 ad" />',
       'format' => 'embed',
     ],
   ]);

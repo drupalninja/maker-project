@@ -1,0 +1,33 @@
+uuid: f2f07a56-eae0-480a-82db-bcbe2506c39c
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:ad:63828f47-5065-43f0-8190-fcb549dae942'
+  module:
+    - block_content
+    - node
+  theme:
+    - creator_theme
+id: partnercontent
+theme: creator_theme
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:63828f47-5065-43f0-8190-fcb549dae942'
+settings:
+  id: 'block_content:63828f47-5065-43f0-8190-fcb549dae942'
+  label: 'Partner Content'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      article: article
