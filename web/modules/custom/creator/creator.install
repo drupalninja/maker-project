@@ -23,22 +23,6 @@ function creator_install() {
     ->set('cardinality', -1)
     ->save();
 
-  // Update article form display with the Display Ads? checkbox.
-  \Drupal::configFactory()->getEditable('core.entity_form_display.node.article.default')
-    ->set('hidden', [
-      'field_display_ads' => FALSE,
-    ])
-    ->set('content.field_display_ads', [
-      'type' => 'boolean_checkbox',
-      'weight' => 1,
-      'region' => 'content',
-      'settings' => [
-        'display_label' => TRUE,
-      ],
-      'third_party_settings' => [],
-    ])
-    ->save();
-
   // Disable frontpage view.
   \Drupal::configFactory()->getEditable('views.view.frontpage')
     ->set('status', FALSE)
@@ -48,6 +32,33 @@ function creator_install() {
   \Drupal::configFactory()->getEditable('views.view.taxonomy_term')
     ->set('status', FALSE)
     ->save();
+
+  // Create first 3 ad slots for article pages.
+  for ($i = 1; $i <= 3; $i++) {
+    \Drupal::configFactory()->getEditable('creator.settings')
+      ->set('ad_slot_' . $i, '<img src="https://placehold.jp/300x50.png?text=300x50 ad" alt="300x50 ad">')
+      ->save();
+  }
+
+  // Create last 2 ad slots for article pages.
+  for ($i = 4; $i <= 5; $i++) {
+    \Drupal::configFactory()->getEditable('creator.settings')
+      ->set('ad_slot_' . $i, '<img src="https://placehold.jp/300x250.png?text=300x250 ad" alt="300x250 ad">')
+      ->save();
+  }
+
+  // Create an ad block.
+  $block = BlockContent::create([
+    'type' => 'ad',
+    'info' => 'Sidebar Ad 300x250',
+    'uuid' => '83cf227c-f337-40fe-83f6-37c1cdbe3ecb',
+    'field_ad' => [
+      'value' => '<img src="https://placehold.jp/300x250.png?text=300x250 ad" alt="300x250 ad">',
+      'format' => 'embed',
+    ],
+  ]);
+
+  $block->save();
 
   // Create a basic address block.
   $block = BlockContent::create([

@@ -11,3 +11,24 @@ block.settings.creator_newsletter:
     description:
       type: string
       label: 'Description'
+
+# Schema for the configuration files of the Creator CMS module.
+creator.settings:
+  type: config_object
+  label: 'Creator CMS settings'
+  mapping:
+    ad_slot_1:
+      type: text_format
+      label: 'Ad Slot 1'
+    ad_slot_2:
+      type: text_format
+      label: 'Ad Slot 1'
+    ad_slot_3:
+      type: text_format
+      label: 'Ad Slot 1'
+    ad_slot_4:
+      type: text_format
+      label: 'Ad Slot 1'
+    ad_slot_5:
+      type: text_format
+      label: 'Ad Slot 1'

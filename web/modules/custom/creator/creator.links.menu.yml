@@ -1,0 +1,6 @@
+creator.settings:
+  title: Creator Settings
+  description: Configure ads and other settings for the Creator platform.
+  parent: system.admin_config_system
+  route_name: creator.settings
+  weight: 10

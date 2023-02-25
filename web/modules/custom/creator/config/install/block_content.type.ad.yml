@@ -1,0 +1,8 @@
+uuid: 064ae26a-c02f-4c00-a30b-6330fc9e910d
+langcode: en
+status: true
+dependencies: {  }
+id: ad
+label: Ad
+revision: 0
+description: 'Place an advertisement block from a third-party ad network.'

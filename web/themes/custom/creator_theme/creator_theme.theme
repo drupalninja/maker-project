@@ -77,6 +77,11 @@ function creator_theme_preprocess_page(&$variables) {
  * Implements hook_preprocess_HOOK() for node.html.twig.
  */
 function creator_theme_preprocess_node(&$variables) {
+  // Add 5 ad slots to article nodes from configuration.
+  if ($variables['node']->getType() == 'article') {
+    $ad_slots = \Drupal::config('creator_theme.settings')->get('ad_slots');
+    $variables['ad_slots'] = $ad_slots;
+  }
 }
 
 /**
@@ -124,6 +129,18 @@ function creator_theme_preprocess_image(&$variables) {
 function creator_theme_preprocess_field(&$variables) {
   $element = $variables['element'];
   if (isset($element['#field_name'])) {
+    // Insert ad slots in between body field values.
+    if ($element['#field_name'] == 'body' && $element['#bundle'] == 'article') {
+
+      foreach ($variables['items'] as $key => $item) {
+        $ad_slot = \Drupal::config('creator.settings')->get('ad_slot_' . ($key + 1));
+
+        if (!empty($ad_slot)) {
+          $variables['items'][$key]['ad_slot'] = $ad_slot;
+        }
+      }
+    }
+
     // Add Thumbnail image to gallery field_images.
     if ($element['#field_name'] == 'field_images' && $element['#bundle'] == 'gallery') {
       foreach ($variables['items'] as $key => $item) {

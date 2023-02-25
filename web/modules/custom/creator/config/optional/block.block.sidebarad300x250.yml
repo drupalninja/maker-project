@@ -1,0 +1,25 @@
+uuid: 4e1f596d-b60c-45f1-a74d-69cf03f6ac91
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:ad:83cf227c-f337-40fe-83f6-37c1cdbe3ecb'
+  module:
+    - block_content
+  theme:
+    - creator_theme
+id: sidebarad300x250
+theme: creator_theme
+region: sidebar
+weight: 5
+provider: null
+plugin: 'block_content:83cf227c-f337-40fe-83f6-37c1cdbe3ecb'
+settings:
+  id: 'block_content:83cf227c-f337-40fe-83f6-37c1cdbe3ecb'
+  label: 'Sidebar Ad 300x250'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

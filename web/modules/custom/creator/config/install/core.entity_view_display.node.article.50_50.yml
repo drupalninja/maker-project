@@ -5,7 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.50_50
     - field.field.node.article.body
-    - field.field.node.article.field_display_ads
     - field.field.node.article.field_image
     - field.field.node.article.field_tags
     - image.style.4_3_thumb
@@ -49,5 +48,4 @@ content:
     weight: 2
     region: content
 hidden:
-  field_display_ads: true
   links: true

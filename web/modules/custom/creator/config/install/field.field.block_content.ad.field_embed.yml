@@ -1,0 +1,24 @@
+uuid: 703f1613-bb17-4b64-afc7-a8cc82d61c39
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ad
+    - field.storage.block_content.field_embed
+  module:
+    - text
+id: block_content.ad.field_embed
+field_name: field_embed
+entity_type: block_content
+bundle: ad
+label: Embed
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: '<img src="https://placehold.jp/300x250.png?text=300x250 ad" alt="300x250 ad">'
+    format: embed
+default_value_callback: ''
+settings: {  }
+field_type: text_long
