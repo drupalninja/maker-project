@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.article.body
+    - field.field.node.article.field_display_ads
     - field.field.node.article.field_image
     - field.field.node.article.field_tags
     - image.style.interior_1024x439
@@ -14,7 +15,7 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: nk_-oYC_4qfqyc1aq7WF6zuBN7fMfRIF23hzjrA-KEg
+  default_config_hash: onH9Dhjk7xekpwE1O2w69PtypX9DFI5L8TD7qpEn9FY
 id: node.article.full
 targetEntityType: node
 bundle: article
@@ -47,4 +48,5 @@ content:
     weight: 2
     region: content
 hidden:
+  field_display_ads: true
   links: true

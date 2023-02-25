@@ -1,0 +1,23 @@
+uuid: cdbb28d7-33ba-4ebe-b12c-5c3d7bc02e9d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_display_ads
+    - node.type.article
+id: node.article.field_display_ads
+field_name: field_display_ads
+entity_type: node
+bundle: article
+label: 'Display Ads?'
+description: 'Checking this option will render advertisements in between body fields.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

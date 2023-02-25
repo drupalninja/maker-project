@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.50_50
     - field.field.node.article.body
+    - field.field.node.article.field_display_ads
     - field.field.node.article.field_image
     - field.field.node.article.field_tags
     - image.style.4_3_thumb
@@ -14,7 +15,7 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: ECx4_3GUFCmll6DxeAyk8pxDILDiHXaH_G1hRpiiV8A
+  default_config_hash: kA9HXzG9UoRFQ0dsJDjlSOsbIGmtc3O61TBCmCp5EkI
 id: node.article.50_50
 targetEntityType: node
 bundle: article
@@ -48,4 +49,5 @@ content:
     weight: 2
     region: content
 hidden:
+  field_display_ads: true
   links: true

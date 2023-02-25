@@ -18,6 +18,27 @@ use Drupal\contact\Entity\ContactForm;
  * Implements hook_install().
  */
 function creator_install() {
+  // Update body field cardinality to unlimited on the article content type.
+  \Drupal::configFactory()->getEditable('field.storage.node.body')
+    ->set('cardinality', -1)
+    ->save();
+
+  // Update article form display with the Display Ads? checkbox.
+  \Drupal::configFactory()->getEditable('core.entity_form_display.node.article.default')
+    ->set('hidden', [
+      'field_display_ads' => FALSE,
+    ])
+    ->set('content.field_display_ads', [
+      'type' => 'boolean_checkbox',
+      'weight' => 1,
+      'region' => 'content',
+      'settings' => [
+        'display_label' => TRUE,
+      ],
+      'third_party_settings' => [],
+    ])
+    ->save();
+
   // Disable frontpage view.
   \Drupal::configFactory()->getEditable('views.view.frontpage')
     ->set('status', FALSE)
