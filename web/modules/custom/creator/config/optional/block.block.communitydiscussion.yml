@@ -1,0 +1,33 @@
+uuid: bcb6cb99-8620-4059-8343-0ef6739e29a8
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:d769c1e1-0f92-4243-853b-b08e3d82f807'
+  module:
+    - block_content
+    - node
+  theme:
+    - creator_theme
+id: communitydiscussion
+theme: creator_theme
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:d769c1e1-0f92-4243-853b-b08e3d82f807'
+settings:
+  id: 'block_content:d769c1e1-0f92-4243-853b-b08e3d82f807'
+  label: 'Community Discussion'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      article: article
