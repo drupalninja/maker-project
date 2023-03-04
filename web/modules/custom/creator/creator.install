@@ -18,6 +18,59 @@ use Drupal\contact\Entity\ContactForm;
  * Implements hook_install().
  */
 function creator_install() {
+  $ckeditor_items = [
+    'bold',
+    'italic',
+    'strikethrough',
+    'superscript',
+    'subscript',
+    'removeFormat',
+    '|',
+    'link',
+    '|',
+    'bulletedList',
+    'numberedList',
+    '|',
+    'blockQuote',
+    'drupalMedia',
+    'insertTable',
+    'horizontalLine',
+    '|',
+    'heading',
+    'codeBlock',
+    '|',
+    'sourceEditing'
+  ];
+
+  // Update CKEditor Full HTML text format to include media button.
+  \Drupal::configFactory()->getEditable('editor.editor.full_html')
+    ->set('settings.toolbar.items', $ckeditor_items)
+    ->set('settings.plugins.media_media.allow_view_mode_override', false)
+    ->save();
+
+  // Update full_html filter with media settings.
+  \Drupal::configFactory()->getEditable('filter.format.full_html')
+    ->set('filters.media_embed', [
+      'id' => 'media_embed',
+      'provider' => 'media',
+      'status' => TRUE,
+      'weight' => 100,
+      'settings' => [
+        'default_view_mode' => 'default',
+        'allowed_media_types' => [
+          'image' => 'image',
+          'remote_video' => 'remote_video',
+        ],
+      ],
+    ])
+    ->save();
+
+  // Update default image media type to use a responsive image style.
+  \Drupal::configFactory()->getEditable('core.entity_form_display.media.image.default')
+    ->set('content.field_media_image.type', 'responsive_image')
+    ->set('content.field_media_image.settings.responsive_image_style', 'wide')
+    ->save();
+
   // Update body field cardinality to unlimited on the article content type.
   \Drupal::configFactory()->getEditable('field.storage.node.body')
     ->set('cardinality', -1)
@@ -508,13 +561,9 @@ function creator_install() {
       'status' => 1,
       'body' => [
         [
-          'value' => '<p> Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo. </p> <p> Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. </p> ',
+          'value' => '<p> Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo. </p> <p> Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. </p> <p> Cum sociis natoque penatibus et magnis <a href="https://demo.web3canvas.com/themeforest/our-church/blog-single.html#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum. </p> <blockquote> <p> Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit. </p> </blockquote> <p> Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur. </p>',
           'format' => 'full_html',
           'summary' => 'Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. ',
-        ],
-        [
-          'value' => '<p> Cum sociis natoque penatibus et magnis <a href="https://demo.web3canvas.com/themeforest/our-church/blog-single.html#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum. </p> <blockquote> <p> Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit. </p> </blockquote> <p> Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur. </p>',
-          'format' => 'full_html',
         ],
         [
           'value' => '<p> Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. </p> <h4> <strong>Sub-heading</strong> </h4> <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p> <p> Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa. </p> ',

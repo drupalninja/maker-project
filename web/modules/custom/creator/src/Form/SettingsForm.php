@@ -28,6 +28,14 @@ class SettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+    $ads_per_paragraph = $this->config('creator.settings')->get('ads_per_paragraph');
+
+    $form['ads_per_paragraph'] = [
+      '#type' => 'number',
+      '#title' => $this->t('Ads per paragraph'),
+      '#default_value' => empty($ads_per_paragraph) ? 2 : $ads_per_paragraph,
+      '#description' => $this->t('Number of ads to insert after every X paragraphs (body values).'),
+    ];
 
     // Create 5 ad slots with sample ad embeds for article pages.
     for ($i = 1; $i <= 5; $i++) {
@@ -61,6 +69,10 @@ class SettingsForm extends ConfigFormBase {
         ->set('ad_slot_' . $i, $form_state->getValue('ad_slot_' . $i)['value'])
         ->save();
     }
+
+    $this->config('creator.settings')
+      ->set('ads_per_paragraph', $form_state->getValue('ads_per_paragraph'))
+      ->save();
 
     parent::submitForm($form, $form_state);
   }

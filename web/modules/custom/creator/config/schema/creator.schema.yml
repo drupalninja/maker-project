@@ -17,6 +17,9 @@ creator.settings:
   type: config_object
   label: 'Creator CMS settings'
   mapping:
+    ads_per_paragraph:
+      type: integer
+      label: 'Ads Per Paragraph'
     ad_slot_1:
       type: text_format
       label: 'Ad Slot 1'

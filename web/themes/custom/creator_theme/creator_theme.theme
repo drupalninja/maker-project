@@ -128,15 +128,27 @@ function creator_theme_preprocess_image(&$variables) {
  */
 function creator_theme_preprocess_field(&$variables) {
   $element = $variables['element'];
+
+  $ad_slot_count = 0;
+
+  // Default to 1 ad after every 2 paragraphs (body values).
+  $ad_per_paragraph = \Drupal::config('creator.settings')->get('ads_per_paragraph');
+
+  if (empty($ad_per_paragraph)) {
+    $ad_per_paragraph = 2;
+  }
+
   if (isset($element['#field_name'])) {
     // Insert ad slots in between body field values.
     if ($element['#field_name'] == 'body' && $element['#bundle'] == 'article') {
 
       foreach ($variables['items'] as $key => $item) {
-        $ad_slot = \Drupal::config('creator.settings')->get('ad_slot_' . ($key + 1));
+        if ($key % $ad_per_paragraph == 0) {
+          $ad_slot = \Drupal::config('creator.settings')->get('ad_slot_' . ($ad_slot_count++ + 1));
 
-        if (!empty($ad_slot)) {
-          $variables['items'][$key]['ad_slot'] = $ad_slot;
+          if (!empty($ad_slot)) {
+            $variables['items'][$key]['ad_slot'] = $ad_slot;
+          }
         }
       }
     }
