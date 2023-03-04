@@ -30,13 +30,6 @@ body .breadcrumb-item+.breadcrumb-item::before {
 }
 
 /**
- * Override iframe embeds.
- */
-iframe {
-  width: 100%;
-}
-
-/**
  * Shrink footer on mobile.
  */
 footer img {
