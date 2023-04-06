@@ -5,11 +5,11 @@ dependencies:
   module:
     - system
   theme:
-    - creator_theme
+    - maker_theme
 _core:
   default_config_hash: 6aOgWsNTXjqrDm98TXSAjP6qd2nCijD1xw45MrnbK-Y
-id: creator_theme_page_title
-theme: creator_theme
+id: maker_theme_page_title
+theme: maker_theme
 region: content_above
 weight: -5
 provider: null

@@ -17,7 +17,7 @@ use Drupal\contact\Entity\ContactForm;
 /**
  * Implements hook_install().
  */
-function creator_install() {
+function maker_install() {
   $ckeditor_items = [
     'bold',
     'italic',

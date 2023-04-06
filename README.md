@@ -1,7 +1,7 @@
 ## Overview
-This composer project is used for testing the Creator install profile for Drupal 10+.
+This composer project is used for testing the Maker install profile for Drupal 10+.
 
-Gitpod link: https://gitpod.io/#https://github.com/drupalninja/creator-project/
+Gitpod link: https://gitpod.io/#https://github.com/drupalninja/maker-project/
 
 ## Quick start
 
@@ -23,17 +23,17 @@ Gitpod link: https://gitpod.io/#https://github.com/drupalninja/creator-project/
    ddev . drush si -y
    ```
 
-2. **Enable the Creator Core module**
+2. **Enable the maker Core module**
 
    ```shell
-   ddev . drush en -y creator
+   ddev . drush en -y maker
    ```
 
-3. **Enable the Creator Themee**
+3. **Enable the maker Themee**
 
    ```shell
-   ddev . drush theme:enable creator_theme
-   ddev . drush config-set -y system.theme default creator_theme
+   ddev . drush theme:enable maker_theme
+   ddev . drush config-set -y system.theme default maker_theme
    ```
 
 4. **Login to test**

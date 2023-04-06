@@ -5,15 +5,15 @@ image: drupalpod/drupalpod-gitpod-base:20220804
 tasks:
   - init: |
       if [ ! -f .ddev/config.yaml ]; then
-        ddev config --docroot=web --project-name="drupal-creator" --project-type=drupal10 --webserver-type="nginx-fpm" --create-docroot
+        ddev config --docroot=web --project-name="drupal-maker" --project-type=drupal10 --webserver-type="nginx-fpm" --create-docroot
       fi
       ddev stop -a
       ddev start -y
       ddev composer install
       ddev . drush si -y
-      ddev . drush en -y creator
-      ddev . drush theme:enable creator_theme
-      ddev . drush config-set -y system.theme default creator_theme
+      ddev . drush en -y maker
+      ddev . drush theme:enable maker_theme
+      ddev . drush config-set -y system.theme default maker_theme
     command: |
       ddev start -y
       gp ports await 8080 && gp preview $(gp url 8080)

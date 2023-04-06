@@ -8,11 +8,11 @@ dependencies:
     - block_content
     - system
   theme:
-    - creator_theme
+    - maker_theme
 _core:
   default_config_hash: D14xkPhI5uQdXYeJSC6JkOcFugItxWQkTibYvyAcdyk
 id: contacthero
-theme: creator_theme
+theme: maker_theme
 region: hero
 weight: 0
 provider: null

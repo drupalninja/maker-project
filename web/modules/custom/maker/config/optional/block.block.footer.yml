@@ -5,15 +5,15 @@ dependencies:
   module:
     - maker
   theme:
-    - creator_theme
+    - maker_theme
 id: footer
-theme: creator_theme
+theme: maker_theme
 region: footer
 weight: 0
 provider: null
-plugin: creator_footer
+plugin: maker_footer
 settings:
-  id: creator_footer
+  id: maker_footer
   label: Footer
   label_display: '0'
   provider: maker

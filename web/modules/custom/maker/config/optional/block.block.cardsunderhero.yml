@@ -8,9 +8,9 @@ dependencies:
     - block_content
     - system
   theme:
-    - creator_theme
+    - maker_theme
 id: cardsunderhero
-theme: creator_theme
+theme: maker_theme
 region: content_above
 weight: -9
 provider: null

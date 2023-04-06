@@ -9,7 +9,7 @@ use Drupal\Core\Form\FormStateInterface;
  * Provides a footer block.
  *
  * @Block(
- *   id = "creator_footer",
+ *   id = "maker_footer",
  *   admin_label = @Translation("Footer"),
  *   category = @Translation("maker")
  * )
@@ -116,7 +116,7 @@ class FooterBlock extends BlockBase {
   public function build() {
 
     $build = [];
-    $build['#theme'] = 'creator_footer';
+    $build['#theme'] = 'maker_footer';
 
     for ($c = 1; $c <= 3; $c++) {
       $footer_setting = $this->configuration['footer_col' . $c];

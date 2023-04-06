@@ -1,9 +1,9 @@
 {
-    "name": "drupalninja/creator-project",
-    "description": "Full composer project template for the Creator distribution.",
+    "name": "drupalninja/maker-project",
+    "description": "Full composer project template for the maker distribution.",
     "type": "drupal-profile",
     "license": "GPL-2.0-or-later",
-    "homepage": "https://www.drupal.org/project/creator",
+    "homepage": "https://www.drupal.org/project/maker",
     "support": {
         "docs": "https://www.drupal.org/docs/user_guide/en/index.html",
         "chat": "https://www.drupal.org/node/314178"

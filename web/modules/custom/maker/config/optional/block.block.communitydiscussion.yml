@@ -8,9 +8,9 @@ dependencies:
     - block_content
     - node
   theme:
-    - creator_theme
+    - maker_theme
 id: communitydiscussion
-theme: creator_theme
+theme: maker_theme
 region: content
 weight: 0
 provider: null

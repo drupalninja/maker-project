@@ -6,15 +6,15 @@ dependencies:
     - maker
     - system
   theme:
-    - creator_theme
+    - maker_theme
 id: map_2
-theme: creator_theme
+theme: maker_theme
 region: content_below
 weight: 0
 provider: null
-plugin: creator_map
+plugin: maker_map
 settings:
-  id: creator_map
+  id: maker_map
   label: Map
   label_display: '0'
   provider: maker

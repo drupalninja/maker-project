@@ -8,9 +8,9 @@ dependencies:
     - block_content
     - system
   theme:
-    - creator_theme
+    - maker_theme
 id: address
-theme: creator_theme
+theme: maker_theme
 region: sidebar
 weight: 0
 provider: null

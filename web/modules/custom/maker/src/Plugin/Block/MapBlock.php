@@ -9,7 +9,7 @@ use Drupal\Core\Form\FormStateInterface;
  * Provides a newsletter block.
  *
  * @Block(
- *   id = "creator_map",
+ *   id = "maker_map",
  *   admin_label = @Translation("Map"),
  *   category = @Translation("maker")
  * )
@@ -50,7 +50,7 @@ class MapBlock extends BlockBase {
    */
   public function build() {
     $build = [
-      '#theme' => 'creator_map',
+      '#theme' => 'maker_map',
       '#script' => $this->configuration['script'],
     ];
 

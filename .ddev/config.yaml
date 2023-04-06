@@ -1,4 +1,4 @@
-name: creator
+name: maker
 type: drupal10
 docroot: web
 php_version: "8.1"

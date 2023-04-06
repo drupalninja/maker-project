@@ -1,7 +1,7 @@
-# Schema for the configuration files of the makerheme theme.
-makerheme.settings:
+# Schema for the configuration files of the maker_theme theme.
+maker_theme.settings:
   type: theme_settings
-  label: 'makerheme settings'
+  label: 'Maker theme settings'
   mapping:
     button_color:
       type: textfield

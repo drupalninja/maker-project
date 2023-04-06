@@ -5,15 +5,15 @@ dependencies:
   module:
     - maker
   theme:
-    - creator_theme
+    - maker_theme
 id: newsletter
-theme: creator_theme
+theme: maker_theme
 region: content_below
 weight: 0
 provider: null
-plugin: creator_newsletter
+plugin: maker_newsletter
 settings:
-  id: creator_newsletter
+  id: maker_newsletter
   label: Newsletter
   label_display: '0'
   provider: maker

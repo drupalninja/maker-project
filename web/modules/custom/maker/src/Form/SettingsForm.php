@@ -14,7 +14,7 @@ class SettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'creator_settings';
+    return 'maker_settings';
   }
 
   /**

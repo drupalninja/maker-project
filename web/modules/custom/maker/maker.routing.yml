@@ -1,7 +1,7 @@
-makerettings:
+maker.settings:
   path: '/admin/config/system/settings'
   defaults:
-    _title: 'makerettings'
-    _form: 'Drupal\makerorm\SettingsForm'
+    _title: 'Maker Settings'
+    _form: 'Drupal\maker\Form\SettingsForm'
   requirements:
     _permission: 'administer site configuration'

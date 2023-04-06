@@ -7,11 +7,11 @@ dependencies:
   module:
     - system
   theme:
-    - creator_theme
+    - maker_theme
 _core:
   default_config_hash: KWAiziL39uEzmOJEql_wbUP2RtqGceL3WM2CfxhMelE
-id: creator_theme_main_menu
-theme: creator_theme
+id: maker_theme_main_menu
+theme: maker_theme
 region: primary_menu
 weight: 0
 provider: null

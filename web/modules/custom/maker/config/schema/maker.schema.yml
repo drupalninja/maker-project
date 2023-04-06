@@ -1,4 +1,4 @@
-block.settings.creator_newsletter:
+block.settings.maker_newsletter:
   type: block_settings
   label: 'Newsletter block'
   mapping:

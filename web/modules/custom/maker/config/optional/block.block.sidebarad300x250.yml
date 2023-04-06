@@ -7,9 +7,9 @@ dependencies:
   module:
     - block_content
   theme:
-    - creator_theme
+    - maker_theme
 id: sidebarad300x250
-theme: creator_theme
+theme: maker_theme
 region: sidebar
 weight: 5
 provider: null

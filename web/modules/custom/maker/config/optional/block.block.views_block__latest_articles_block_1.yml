@@ -8,11 +8,11 @@ dependencies:
     - system
     - views
   theme:
-    - creator_theme
+    - maker_theme
 _core:
   default_config_hash: Gq53eK-VIign-hK7TJs7GUBpoufQc8_ekiLjLs2MK7U
 id: views_block__latest_articles_block_1
-theme: creator_theme
+theme: maker_theme
 region: content
 weight: -6
 provider: null

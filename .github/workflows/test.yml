@@ -1,4 +1,4 @@
-name: Test Creator
+name: Test maker
 
 on:
   push:
@@ -48,12 +48,12 @@ jobs:
         run:
           echo "export PATH=$PATH:$GITHUB_WORKSPACE/vendor/bin" >> ~/.bash_profile
           source ~/.bash_profile
-          drush si -y --site-name=Creator
-          drush en -y creator
-          drush theme:enable creator_theme
-          drush config-set -y system.theme default creator_theme
+          drush si -y --site-name=maker
+          drush en -y maker
+          drush theme:enable maker_theme
+          drush config-set -y system.theme default maker_theme
 
       - name: Check coding standards
         run: |
-          ./vendor/bin/phpcs --standard=Drupal --extensions=php,module,install,js web/modules/contrib/creator
-          ./vendor/bin/phpcs --standard=Drupal --extensions=php,module,install,js web/themes/contrib/creator_theme
+          ./vendor/bin/phpcs --standard=Drupal --extensions=php,module,install,js web/modules/contrib/maker
+          ./vendor/bin/phpcs --standard=Drupal --extensions=php,module,install,js web/themes/contrib/maker_theme
