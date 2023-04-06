@@ -26,6 +26,7 @@
 }
 
 .scrolled .navbar-brand img {
+  max-width: 100px;
   max-height: 40px;
   transition: max-height 0.5s;
 }
