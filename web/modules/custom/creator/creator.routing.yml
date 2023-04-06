@@ -1,7 +1,0 @@
-creator.settings:
-  path: '/admin/config/system/settings'
-  defaults:
-    _title: 'Creator Settings'
-    _form: 'Drupal\creator\Form\SettingsForm'
-  requirements:
-    _permission: 'administer site configuration'

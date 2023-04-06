@@ -1,0 +1,41 @@
+# Schema for the configuration files of the makerheme theme.
+makerheme.settings:
+  type: theme_settings
+  label: 'makerheme settings'
+  mapping:
+    button_color:
+      type: textfield
+      label: Button Color
+    button_border:
+      type: textfield
+      label: Button Border
+    button_hover:
+      type: textfield
+      label: Button Hover
+    button_hover_border:
+      type: textfield
+      label: Button Hover Border
+    dropdown_active_color:
+      type: textfield
+      label: Dropdown Active Color
+    nav_bg_color:
+      type: textfield
+      label: Background Light Color
+    bg_dark_color:
+      type: textfield
+      label: Background Dark Color
+    blog_page_path:
+      type: textfield
+      label: 'Blog page path'
+    bootstrap_css:
+      type: textfield
+      label: 'Bootstrap CSS'
+    bootstrap_js:
+      type: textfield
+      label: 'Bootstrap JS'
+    popper_js:
+      type: textfield
+      label: 'Bootstrap JS'
+    icons_css:
+      type: textfield
+      label: 'Icons CSS'

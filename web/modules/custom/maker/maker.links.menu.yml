@@ -1,0 +1,6 @@
+maker.settings:
+  title: Maker Settings
+  description: Configure ads and other settings for the maker platform.
+  parent: system.admin_config_system
+  route_name: maker.settings
+  weight: 10
